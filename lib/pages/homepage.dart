@@ -42,28 +42,52 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      drawer: Drawer(),
-      appBar: AppBar(
-          backgroundColor: Colors.blueAccent,
-          elevation: 0,
-          actions: [
-            IconButton(
-                icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
-                onPressed: () {
-                  Get.changeTheme(
-                      isDark ? ThemeData.light() : ThemeData.dark());
-                  setState(() {
-                    isDark = !isDark;
-                  });
-                })
-          ],
-          title: Text(
-            'COVID -19 Situation Report',
-            style: TextStyle(
-                color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
-          )),
-      body: Stack(),
-    );
+        extendBodyBehindAppBar: true,
+        drawer: Drawer(),
+        appBar: AppBar(
+            backgroundColor: Colors.blueAccent,
+            elevation: 0,
+            actions: [
+              IconButton(
+                  icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
+                  onPressed: () {
+                    Get.changeTheme(
+                        isDark ? ThemeData.light() : ThemeData.dark());
+                    setState(() {
+                      isDark = !isDark;
+                    });
+                  })
+            ],
+            title: Text(
+              'COVID -19 Situation Report',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold),
+            )),
+        body: GridView.count(
+            primary: false,
+            padding: const EdgeInsets.all(20),
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            crossAxisCount: 3,
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.all(8),
+                child: Text('$totalCasseslocal'),
+              ),
+              // Container(
+              //   padding: const EdgeInsets.all(8),
+              //   child: Text('$totalCasseslocal'),
+              // ),
+              // Container(
+              //   padding: const EdgeInsets.all(8),
+              //   child: Text('$totalCasseslocal'),
+              // ),
+              // Container(
+              //   padding: const EdgeInsets.all(8),
+              //   child: Text('$totalCasseslocal'),
+              // ),
+            ]));
   }
 }
